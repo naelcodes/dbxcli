@@ -23,9 +23,11 @@
     "url": "https://github.com/naelcodes/dxcli.git"
   },
   "scripts": {
+    "lint": "pnpm biome lint --write src",
+		"format": "pnpm biome format --write src",
     "dev": "tsc && (concurrently \"tsc -w\" \"tsc-alias -w\")",
     "clean": "rm -r dist/**",
-		"build": "tsc && tsc-alias",
+    "build": "tsc && tsc-alias",
     "clean:build": "pnpm clean && pnpm build"
   },
   "author": "Nana Emmanuel",
@@ -36,6 +38,7 @@
   },
   "packageManager": "pnpm@9.12.1",
   "devDependencies": {
+    "@biomejs/biome": "^1.9.3",
     "@tsconfig/node22": "^22.0.0",
     "@types/node": "^22.7.5",
     "concurrently": "^9.0.1",
