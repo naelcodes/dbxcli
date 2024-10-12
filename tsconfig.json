@@ -1,0 +1,30 @@
+{
+	"extends": "@tsconfig/node22/tsconfig.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"rootDir": "src",
+		"outDir": "dist",
+		"paths": {
+			"@/*": ["src/*"],
+		},
+
+		"resolveJsonModule": true,
+		"checkJs": true,
+		"declaration": true,
+		"forceConsistentCasingInFileNames": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"noImplicitThis": true,
+		"useUnknownInCatchVariables": true,
+		"noImplicitReturns": true,
+		"noUncheckedIndexedAccess": true,
+		"noImplicitOverride": true,
+		"exactOptionalPropertyTypes": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"strictFunctionTypes": true
+	},
+	"include": ["src"],
+	"exclude": ["node_modules", "dist"]
+}
