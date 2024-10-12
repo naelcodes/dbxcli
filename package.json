@@ -1,0 +1,35 @@
+{
+  "name": "@n/dxcli",
+  "version": "0.0.0",
+  "description": "CLI tool for scaffolding Directus bundle extensions with utilities to enhance developer experience.",
+  "keywords": [
+    "dxcli",
+    "directus"
+  ],
+
+  "main": "./dist/main.js",
+  "bin":{
+    "dxcli":"./dist/main.js"
+  },
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+		"dist",
+		"templates"
+	],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naelcodes/dxcli.git"
+  },
+  "scripts": {},
+ 
+  "author": "Nana Emmanuel",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22",
+    "pnpm": "9"
+  },
+  "packageManager": "pnpm@9.12.1"
+}
