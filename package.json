@@ -1,14 +1,14 @@
 {
-  "name": "@n/dxcli",
+  "name": "dbxcli",
   "version": "0.0.0",
   "description": "CLI tool for scaffolding Directus bundle extensions with utilities to enhance developer experience.",
   "keywords": [
     "dxcli",
     "directus"
   ],
-  "main": "./dist/main.js",
+  "main": "./dist/bin/dbxcli.js",
   "bin": {
-    "dxcli": "./dist/main.js"
+    "dbxcli": "./dist/bin/dbxcli.js"
   },
   "type": "module",
   "publishConfig": {
