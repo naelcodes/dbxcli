@@ -3,5 +3,6 @@
         "deps-dev",
         "utils",
         "cli",
+        "helpers"
     ]
 }
