@@ -2,6 +2,6 @@
     "conventionalCommits.scopes": [
         "deps-dev",
         "utils",
-        "cli"
+        "cli",
     ]
 }

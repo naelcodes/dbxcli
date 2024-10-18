@@ -1,6 +1,6 @@
 import type{Command} from 'commander';
 
-const AVAILABLE_COMMANDS = [""] as const;
+const AVAILABLE_COMMANDS = ["new"] as const;
 
 export async function commandLoader(program:Command){
     for (const command of AVAILABLE_COMMANDS) {
