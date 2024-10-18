@@ -12,3 +12,8 @@ export type logAndAbortOptions = {
 
 export type Result<T, E extends Error = Error> = [T | null, E | null];
 export type AsyncResult<T, E extends Error = Error> = Promise<Result<T, E>>;
+
+export type CommandInput = {
+    name: string,
+    value: boolean | string;
+};
