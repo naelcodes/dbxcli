@@ -6,7 +6,7 @@
 		"outDir": "dist",
 		"paths": {
 			"@cli":["src/cli/index.ts"],
-			"@lib/directus":["src/lib/directus/index.ts"],
+			"@lib/runners":["src/lib/runners/index.ts"],
 			"@lib/helpers":["src/lib/helpers/index.ts"],
 			"@lib/utils":["src/lib/utils/index.ts"],
 			"@common/*":["src/common/*"]
