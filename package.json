@@ -26,6 +26,7 @@
     "lint": "pnpm biome lint --write src",
     "format": "pnpm biome format --write src",
     "dev": "tsc && (concurrently \"tsc -w\" \"tsc-alias -w\")",
+    "dev:tsx":"tsx watch src/bin/dbxcli.ts",
     "clean": "rm -r dist/**",
     "build": "tsc && tsc-alias",
     "clean:build": "pnpm clean && pnpm build"
@@ -44,6 +45,7 @@
     "@types/node": "^22.7.5",
     "concurrently": "^9.0.1",
     "tsc-alias": "^1.8.10",
+    "tsx": "^4.19.1",
     "typescript": "^5.6.3"
   },
   "dependencies": {
