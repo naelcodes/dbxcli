@@ -9,3 +9,6 @@ export type logAndAbortOptions = {
 	context?:string;
 	loglevel:LOG_LEVEL_TYPE;	
 }
+
+export type Result<T, E extends Error = Error> = [T | null, E | null];
+export type AsyncResult<T, E extends Error = Error> = Promise<Result<T, E>>;
