@@ -24,3 +24,7 @@ export type DirectusCliPromptsAnswers = {
 	path?: string;
 	install?: 'y' | 'n';
 };
+
+export type EnumRecord<T extends readonly string[]> = {
+	[K in Uppercase<T[number]>]: Lowercase<K>;
+};
