@@ -3,6 +3,7 @@
         "deps-dev",
         "utils",
         "cli",
-        "helpers"
+        "helpers",
+        "runner"
     ]
 }
