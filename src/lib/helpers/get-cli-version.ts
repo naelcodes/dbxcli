@@ -1,9 +1,9 @@
-import type{logAndAbortOptions, Result} from '@common/types.js';
+import type {logAndAbortOptions, Result} from '@common/types.js';
 import {AsyncResultWrap, logAndAbort} from '@lib/utils';
 import {dirname, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import type{PackageJson} from 'pkg-types';
-import fse from "fs-extra"
+import type {PackageJson} from 'pkg-types';
+import fse from 'fs-extra';
 
 export async function getCliVersion(): Promise<string> {
 	const [version, error]: Result<string, Error> = await AsyncResultWrap(async () => {

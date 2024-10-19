@@ -1,4 +1,4 @@
-import type{AsyncResult, Result} from '@common/types.js';
+import type {AsyncResult, Result} from '@common/types.js';
 
 export function ResultWrap<T, E extends Error = Error>(result: () => T): Result<T, E> {
 	try {

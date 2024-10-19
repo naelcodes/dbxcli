@@ -14,18 +14,18 @@ export default class NewCommand extends AbstractCommand {
 			.option('-p | --package-manager <packageManager>', 'Specify package Manager', 'pnpm')
 			.action(async (name, options) => {
 				const CommandOptions: CommandInput[] = [];
-				const userInputs: CommandInput[] = []
+				const userInputs: CommandInput[] = [];
 
 				CommandOptions.push(
-                    {name: 'install', value: options.install}, 
-                    {name: 'gitInit', value: options.gitInit},
-                    {name: 'packageManager',value: options.packageManager}
-                );
+					{name: 'install', value: options.install},
+					{name: 'gitInit', value: options.gitInit},
+					{name: 'packageManager', value: options.packageManager},
+				);
 
-                userInputs.push({
-                    name:"name",
-                    value:name
-                })
+				userInputs.push({
+					name: 'name',
+					value: name,
+				});
 				await this.action.handle(userInputs, CommandOptions);
 			});
 	}
