@@ -1,2 +1,2 @@
-export * from "./program.js"
-export * from "./command-loader.js"
+export * from './program.js';
+export * from './command-loader.js';
