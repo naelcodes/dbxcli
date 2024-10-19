@@ -25,7 +25,7 @@ export async function directusCliPromptsHandler(subprocess: Subprocess, answers:
 		subprocess.stdout.on('data', async (data) => {
 			const terminalOutput = data.toString();
 
-			console.log('>>> terminal output :', terminalOutput);
+			//console.log('>>> terminal output :', terminalOutput);
 
 			if (answers.extensionType && terminalOutput.includes('Choose the extension type')) {
 				await selectChoice({
