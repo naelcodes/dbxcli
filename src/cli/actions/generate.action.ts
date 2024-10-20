@@ -7,7 +7,6 @@ import {EXTENSION_LANGUAGES, type NestedExtensionType} from '@directus/extension
 import {DirectusRunner, PackageManagerRunner} from '@lib/runners';
 import {detectPackageManager} from '@lib/helpers';
 
-
 export default class GenerateAction extends AbstractAction {
 	async handle(inputs?: CommandInput[], options?: CommandInput[]): Promise<void> {
 		const spinner = ora();
@@ -19,15 +18,18 @@ export default class GenerateAction extends AbstractAction {
 			let directory = options?.find((option) => option.name === 'directory')?.value as string;
 			directory = directory?.startsWith('/') ? directory?.slice(1) : directory;
 
-			const install = options?.find((option) => option.name === 'install')?.value as boolean;
-
 			const extensionName = inputs?.find((input) => input.name === 'extensionName')?.value as string;
+
+			const extensionfullName =
+				directory === '' ? extensionName : directory.endsWith('/') ? `${directory}${extensionName}` : `${directory}/${extensionName}`;
+
+			const install = options?.find((option) => option.name === 'install')?.value as boolean;
 
 			spinner.start(chalk.bold(`Adding ${extensionType} extension to the bundle extension`));
 
 			const promptAnswers: DirectusCliPromptsAnswers = {
 				extensionType,
-				extensionName: directory.endsWith('/') ? `${directory}${extensionName}` : `${directory}/${extensionName}`,
+				extensionName: extensionfullName,
 				language: toEnumRecord(EXTENSION_LANGUAGES).TYPESCRIPT,
 				path: 'src',
 			};
@@ -35,7 +37,7 @@ export default class GenerateAction extends AbstractAction {
 			const packageManager = await detectPackageManager(projectPath);
 
 			await new DirectusRunner().setAddCommand().setExecaOptions({preferLocal: true}).setPromptAnswers(promptAnswers).build().run();
-						
+
 			if (install) {
 				spinner.succeed().start(chalk.bold('Installing dependencies'));
 				await new PackageManagerRunner(packageManager).setInstallCommand().setExecaOptions({cwd: projectPath}).build().run();
@@ -44,10 +46,9 @@ export default class GenerateAction extends AbstractAction {
 			}
 
 			spinner.succeed(chalk.bold('Done'));
-		    log(`Your ${extensionType} extension has been added.`);
+			log(`Your ${extensionType} extension has been added.`);
 		});
 
 		logAndAbort(error, {spinner} as logAndAbortOptions);
-		
 	}
 }
