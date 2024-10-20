@@ -1,3 +1,10 @@
+## [0.1.1](https://github.com/naelcodes/dbxcli/compare/v0.1.0...v0.1.1) (2024-10-20)
+
+
+### Bug Fixes
+
+* **cli:** remove "/" that is added to the generated extension name when --directory option of generate subcommand isn't specified ([9f43560](https://github.com/naelcodes/dbxcli/commit/9f4356098d0928e8f295ee8a959d6e1b8fda334d))
+
 # [0.1.0](https://github.com/naelcodes/dbxcli/compare/v0.0.0...v0.1.0) (2024-10-20)
 
 
