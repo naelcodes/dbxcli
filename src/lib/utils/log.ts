@@ -1,6 +1,6 @@
 import {LOG_LEVEL} from '@common/constants.js';
 import type {LOG_LEVEL_TYPE, logAndAbortOptions} from '@common/types.js';
-import chalk from 'chalk';
+import {LOG_PREFIX} from '@lib/ui';
 import {ExecaError} from 'execa';
 
 const _log = console.log;
@@ -8,10 +8,10 @@ const _log = console.log;
 export function log(message: string, type?: LOG_LEVEL_TYPE) {
 	switch (type) {
 		case LOG_LEVEL.INFO:
-			_log(`${chalk.bgRgb(60, 190, 100).bold.rgb(0, 0, 0)(` ${LOG_LEVEL.INFO}   `)} ${message}`);
+			_log(`${LOG_PREFIX.INFO} ${message}`);
 			break;
 		case LOG_LEVEL.ERROR:
-			_log(`${chalk.bgRgb(210, 0, 75).bold.rgb(0, 0, 0)(` ${LOG_LEVEL.ERROR} `)} ${message}`);
+			_log(`${LOG_PREFIX.ERROR} ${message}`);
 			break;
 		default:
 			_log(message);
