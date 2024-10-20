@@ -1,5 +1,6 @@
 import type {Ora} from 'ora';
 import type {LOG_LEVEL} from './constants.js';
+import type {ExtensionType} from '@directus/extensions';
 
 export type LOG_LEVEL_TYPE = (typeof LOG_LEVEL)[keyof typeof LOG_LEVEL];
 
@@ -18,7 +19,7 @@ export type CommandInput = {
 };
 
 export type DirectusCliPromptsAnswers = {
-	extensionType?: string;
+	extensionType?: ExtensionType;
 	extensionName?: string;
 	language?: string;
 	path?: string;
