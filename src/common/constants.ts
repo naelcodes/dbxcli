@@ -1,3 +1,4 @@
+
 export const LOG_LEVEL = {
 	INFO: 'INFO',
 	//WARN: 'WARN',
@@ -14,5 +15,12 @@ export const PACKAGE_MANAGER = {
 	PNPM: 'pnpm',
 	NPM: 'npm',
 } as const;
+
+export const LOCK_FILE = {
+	PNPM:'pnpm-lock.yaml',
+	NPM:'package-lock.json'
+} as const
+
+
 
 export const BUILD_DIRNAME = 'extension-registry';
