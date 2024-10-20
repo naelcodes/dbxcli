@@ -9,6 +9,7 @@
 			"@lib/runners":["src/lib/runners/index.ts"],
 			"@lib/helpers":["src/lib/helpers/index.ts"],
 			"@lib/utils":["src/lib/utils/index.ts"],
+			"@lib/ui":["src/lib/ui/index.ts"],
 			"@common/*":["src/common/*"]
 		},
 
