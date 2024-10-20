@@ -26,7 +26,7 @@
     "lint": "pnpm biome lint --write src",
     "format": "pnpm biome format --write src",
     "dev": "tsc && (concurrently \"tsc -w\" \"tsc-alias -w\")",
-    "dev:tsx": "tsx watch src/bin/dbxcli.ts",
+    "dev:tsx": "tsx src/bin/dbxcli.ts",
     "clean": "rm -r dist/**",
     "build": "tsc && tsc-alias",
     "clean:build": "pnpm clean && pnpm build"
