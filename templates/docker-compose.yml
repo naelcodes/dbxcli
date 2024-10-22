@@ -1,0 +1,29 @@
+services:
+     airbooks:
+          build:
+               context: .
+               dockerfile: Dockerfile
+          ports:
+               - ${PORT}:${PORT}
+          volumes:
+               - ./extensions:/directus/extensions
+          env_file: .env
+          depends_on:
+               database:
+                    condition: service_healthy
+     database:
+          image: postgres:16.4
+          # Required when running on platform other than amd64, like Apple M1/M2:
+          # platform: linux/amd64
+          ports:
+               - 5432:5432
+          # volumes:
+          #      - ./data/database:/var/lib/postgresql/data
+          env_file: .env
+          healthcheck:
+               test: ['CMD', 'pg_isready', '--host=localhost', '--username=${POSTGRES_USER}']
+               interval: 10s
+               timeout: 5s
+               retries: 5
+               start_interval: 5s
+               start_period: 30s
