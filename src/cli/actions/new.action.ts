@@ -8,7 +8,7 @@ import {DirectusRunner, GitRunner, PackageManagerRunner} from '@lib/runners';
 import chalk from 'chalk';
 import fse from 'fs-extra';
 import {createDirectories, getDoneMessage, getTemplatePath, updatePackageManifest} from '@lib/helpers';
-import {BUILD_DIRNAME} from '@common/constants.js';
+import {BUILD_DIRNAME, DIRECTUS_EXTENSION_FOLDER_PREFIX} from '@common/constants.js';
 
 export default class NewAction extends AbstractAction {
 	async handle(inputs?: CommandInput[], options?: CommandInput[]): Promise<void> {
@@ -45,9 +45,9 @@ export default class NewAction extends AbstractAction {
 			spinner.succeed().start(chalk.bold('copying templates files'));
 			await fse.copy(getTemplatePath(), targetPath, {overwrite: false});
 
-			spinner.succeed().start(chalk.bold('creating build and plugins directories'));
+			spinner.succeed().start(chalk.bold('creating extension build directory'));
 
-			await createDirectories(targetPath, `${BUILD_DIRNAME}/local/${targetDir}`, `${BUILD_DIRNAME}/plugins`);
+			await createDirectories(targetPath, `${BUILD_DIRNAME}/${DIRECTUS_EXTENSION_FOLDER_PREFIX}${targetDir}`);
 
 			const gitInit = options?.find((option) => option.name === 'gitInit')?.value as boolean;
 

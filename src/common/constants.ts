@@ -23,4 +23,5 @@ export const LOCK_FILE = {
 
 
 
-export const BUILD_DIRNAME = 'extension-registry';
+export const BUILD_DIRNAME = 'extensions';
+export const DIRECTUS_EXTENSION_FOLDER_PREFIX = 'directus-extension-';

@@ -1,4 +1,4 @@
-import {BUILD_DIRNAME} from '@common/constants.js';
+import {BUILD_DIRNAME, DIRECTUS_EXTENSION_FOLDER_PREFIX} from '@common/constants.js';
 import {EXTENSION_PKG_KEY, type ExtensionManifest, type SplitEntrypoint} from '@directus/extensions';
 import fse from 'fs-extra';
 import path from 'node:path';
@@ -11,8 +11,8 @@ export async function updatePackageManifest(targetPath: string, targetDir: strin
 
 	const splitEntryPoint = (packageManifest as ExtensionManifest)[EXTENSION_PKG_KEY].path as SplitEntrypoint;
 
-	splitEntryPoint.api = splitEntryPoint.api.replace('dist', `${BUILD_DIRNAME}/local/${targetDir}`);
-	splitEntryPoint.app = splitEntryPoint.app.replace('dist', `${BUILD_DIRNAME}/local/${targetDir}`);
+	splitEntryPoint.api = splitEntryPoint.api.replace('dist', `${BUILD_DIRNAME}/${DIRECTUS_EXTENSION_FOLDER_PREFIX}${targetDir}/dist`);
+	splitEntryPoint.app = splitEntryPoint.app.replace('dist', `${BUILD_DIRNAME}/${DIRECTUS_EXTENSION_FOLDER_PREFIX}${targetDir}/dist`);
 
 	if ((packageManifest as PackageJson).devDependencies) {
 		packageManifest.devDependencies = {...packageManifest.devDependencies, dbxcli: await getCliVersion()};
