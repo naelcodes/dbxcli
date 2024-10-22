@@ -5,3 +5,4 @@ export * from './create-directory.js';
 export * from './get-done-message.js';
 export * from './detect-package-manager.js'
 export * from './create-build-package-manifest.js'
+export * from './update-build-package-manifest-entries.js'

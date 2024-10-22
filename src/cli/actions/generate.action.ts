@@ -5,9 +5,7 @@ import ora from 'ora';
 import chalk from 'chalk';
 import {EXTENSION_LANGUAGES, type NestedExtensionType} from '@directus/extensions';
 import {DirectusRunner, PackageManagerRunner} from '@lib/runners';
-import {copyPackageManifest, detectPackageManager} from '@lib/helpers';
-import {BUILD_DIRNAME, DIRECTUS_EXTENSION_FOLDER_PREFIX} from '@common/constants.js';
-import path from 'node:path';
+import {detectPackageManager, updateBuildPackageManifestEntries} from '@lib/helpers';
 
 export default class GenerateAction extends AbstractAction {
 	async handle(inputs?: CommandInput[], options?: CommandInput[]): Promise<void> {
@@ -40,7 +38,7 @@ export default class GenerateAction extends AbstractAction {
 
 			await new DirectusRunner().setAddCommand().setExecaOptions({preferLocal: true}).setPromptAnswers(promptAnswers).build().run();
 
-			await copyPackageManifest(projectPath,`${projectPath}/${BUILD_DIRNAME}/${DIRECTUS_EXTENSION_FOLDER_PREFIX}${path.basename(projectPath)}`);
+			await updateBuildPackageManifestEntries(projectPath);
 
 			if (install) {
 				spinner.succeed().start(chalk.bold('Installing dependencies'));
