@@ -1,3 +1,15 @@
+# [0.3.0](https://github.com/naelcodes/dbxcli/compare/v0.2.0...v0.3.0) (2024-10-22)
+
+
+### Bug Fixes
+
+* **cli:** change the order in which the build directory and its package.json is created to prevent to keep the build path as "/dist" ([610ee46](https://github.com/naelcodes/dbxcli/commit/610ee465897ed146628d12d515f7795538e59f46))
+
+
+### Features
+
+* **cli:** add a step to update the build package manifest after the adding an extension during the execution of the "add" command ([6ffca65](https://github.com/naelcodes/dbxcli/commit/6ffca65afc55a0801255be04ab75e4a9dadb77a4))
+
 # [0.2.0](https://github.com/naelcodes/dbxcli/compare/v0.1.1...v0.2.0) (2024-10-22)
 
 

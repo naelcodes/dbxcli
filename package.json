@@ -1,6 +1,6 @@
 {
   "name": "dbxcli",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "CLI tool for scaffolding Directus bundle extensions with utilities to enhance developer experience.",
   "keywords": [
     "dxcli",
