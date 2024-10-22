@@ -85,9 +85,7 @@ async function selectChoice({terminalOutput, input, promptStartLine, subprocess,
 				// remove ANSI escape sequence from current selected choice and checkbox symbol
 				currentChoice = trimmedLine.replace(checkboxSymbol, '').replace(ansiRegex, '').trim();
 
-				if (seenChoices.has(currentChoice)) {
-					console.error(`${input} not found in options.`);
-				} else {
+				if (!seenChoices.has(currentChoice)){
 					seenChoices.add(currentChoice);
 					if (input === currentChoice) {
 						// select choice
