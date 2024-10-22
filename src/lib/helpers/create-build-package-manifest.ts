@@ -3,7 +3,7 @@ import fse from 'fs-extra';
 import {EXTENSION_PKG_KEY, type ExtensionManifest} from '@directus/extensions';
 import type{BuildManifest} from '@common/types.js';
 
-export async function copyPackageManifest(targetPath:string,destinationPath:string){
+export async function createBuildPackageManifest(targetPath:string,destinationPath:string){
     const packageJsonPath = path.join(targetPath, 'package.json');
 	const packageManifest:ExtensionManifest = await fse.readJson(packageJsonPath);
 

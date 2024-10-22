@@ -7,7 +7,7 @@ import {EXTENSION_TYPES} from '@directus/extensions';
 import {DirectusRunner, GitRunner, PackageManagerRunner} from '@lib/runners';
 import chalk from 'chalk';
 import fse from 'fs-extra';
-import {copyPackageManifest, createDirectories, getDoneMessage, getTemplatePath, updatePackageManifest} from '@lib/helpers';
+import {createBuildPackageManifest, createDirectories, getDoneMessage, getTemplatePath, updatePackageManifest} from '@lib/helpers';
 import {BUILD_DIRNAME, DIRECTUS_EXTENSION_FOLDER_PREFIX} from '@common/constants.js';
 
 export default class NewAction extends AbstractAction {
@@ -39,17 +39,19 @@ export default class NewAction extends AbstractAction {
 
 			await new DirectusRunner().setRunnerName(packageManagerRunner.ExecCommand).setCreateCommand().setPromptAnswers(promptAnswers).build().run();
 
+			spinner.succeed().start(chalk.bold('creating extension build directory'));
+
+			await createDirectories(targetPath, `${BUILD_DIRNAME}/${DIRECTUS_EXTENSION_FOLDER_PREFIX}${targetDir}`);
+
+			await createBuildPackageManifest(targetPath,`${targetPath}/${BUILD_DIRNAME}/${DIRECTUS_EXTENSION_FOLDER_PREFIX}${targetDir}`);
+
 			spinner.succeed().start(chalk.bold('updating package manifest'));
 			await updatePackageManifest(targetPath, targetDir);
 
 			spinner.succeed().start(chalk.bold('copying templates files'));
 			await fse.copy(getTemplatePath(), targetPath, {overwrite: false});
 
-			spinner.succeed().start(chalk.bold('creating extension build directory'));
-
-			await createDirectories(targetPath, `${BUILD_DIRNAME}/${DIRECTUS_EXTENSION_FOLDER_PREFIX}${targetDir}`);
-
-			await copyPackageManifest(targetPath,`${targetPath}/${BUILD_DIRNAME}/${DIRECTUS_EXTENSION_FOLDER_PREFIX}${targetDir}`);
+			
 
 			const gitInit = options?.find((option) => option.name === 'gitInit')?.value as boolean;
 
