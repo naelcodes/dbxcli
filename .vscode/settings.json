@@ -4,6 +4,7 @@
         "utils",
         "cli",
         "helpers",
-        "runner"
+        "runner",
+        "templates"
     ]
 }
