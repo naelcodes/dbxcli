@@ -1,3 +1,15 @@
+# [0.2.0](https://github.com/naelcodes/dbxcli/compare/v0.1.1...v0.2.0) (2024-10-22)
+
+
+### Bug Fixes
+
+* **cli:** change the extension build directory name to directus' extension folder paradigm introduced in v10.10 ([df1483d](https://github.com/naelcodes/dbxcli/commit/df1483d4989c8378b7046356f68749dc0998f5df))
+
+
+### Features
+
+* **cli:** add a step to copy package manifest changes during the execution of "new: and "add" commands ([4473c09](https://github.com/naelcodes/dbxcli/commit/4473c09ce3e18ad51679f62e5b449bcb32bc9e84))
+
 ## [0.1.1](https://github.com/naelcodes/dbxcli/compare/v0.1.0...v0.1.1) (2024-10-20)
 
 
