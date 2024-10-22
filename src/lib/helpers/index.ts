@@ -4,3 +4,4 @@ export * from './get-template-path.js';
 export * from './create-directory.js';
 export * from './get-done-message.js';
 export * from './detect-package-manager.js'
+export * from './copy-package-manifest.js'
