@@ -24,7 +24,9 @@
 				"usernamehw.errorlens",
 				"wix.vscode-import-cost",
 				"christian-kohler.npm-intellisense",
-				"christian-kohler.npm-intellisense",
+				"hediet.realtime-debugging",
+				"vitest.explorer",
+				"xabikos.JavaScriptSnippets",
 				"pmneo.tsimporter",
 				"redhat.vscode-yaml",
 				"wraith13.zoombar-vscode",
@@ -39,7 +41,12 @@
 				"vivaxy.vscode-conventional-commits",
 				"biomejs.biome",
 				"ms-azuretools.vscode-docker",
-				"ms-vscode.vscode-typescript-next"
+				"ms-vscode.vscode-typescript-next",
+				"yzhang.markdown-all-in-one",
+				"DavidAnson.vscode-markdownlint",
+				"ms-vscode.vscode-typescript-next",
+				"stringham.move-ts",
+				"hbenl.vscode-test-explorer"
 			],
 			"settings": {
 				"eslint.enable": false,
