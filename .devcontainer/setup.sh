@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "\n >>>>>> SETUP START \n"
+echo "\n >>>>>> SETUP START <<<<<< \n"
 
 git config --global --add safe.directory /workspaces/dxcli
 echo "\n >> Configured git \n"
@@ -19,7 +19,4 @@ else
 fi
 
 
-pnpm link --global
-echo "\n >> linked  cli globally\n"
-
-echo "\n >>>>> SETUP DONE"
+echo "\n >>>>> SETUP DONE <<<<<<"
