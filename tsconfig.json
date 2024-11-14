@@ -10,7 +10,8 @@
 			"@lib/helpers":["src/lib/helpers/index.ts"],
 			"@lib/utils":["src/lib/utils/index.ts"],
 			"@lib/ui":["src/lib/ui/index.ts"],
-			"@common/*":["src/common/*"]
+			"@common/*":["src/common/*"],
+			"@lib/prompts":["src/lib/prompts/index.ts"]
 		},
 
 		"resolveJsonModule": true,
