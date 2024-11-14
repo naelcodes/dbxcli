@@ -20,7 +20,7 @@ export default class GenerateAction extends AbstractAction {
 
 			const extensionName = inputs?.find((input) => input.name === 'extensionName')?.value as string;
 
-			const extensionfullName =
+			const bundleEntryfullName =
 				directory === '' ? extensionName : directory.endsWith('/') ? `${directory}${extensionName}` : `${directory}/${extensionName}`;
 
 			const install = options?.find((option) => option.name === 'install')?.value as boolean;
@@ -29,7 +29,7 @@ export default class GenerateAction extends AbstractAction {
 
 			const promptAnswers: DirectusCliPromptsAnswers = {
 				extensionType,
-				extensionName: extensionfullName,
+				bundleEntryName: bundleEntryfullName,
 				language: toEnumRecord(EXTENSION_LANGUAGES).TYPESCRIPT,
 				path: 'src',
 			};

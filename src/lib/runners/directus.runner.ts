@@ -1,6 +1,7 @@
 import type {DirectusCliPromptsAnswers} from '@common/types.js';
 import {AbstractRunner} from './abstract.runner.js';
-import {directusCliPromptsHandler} from '../helpers/directus-cli-prompt-handler.js';
+import {getPromptsWithActions} from '@lib/helpers';
+import {PromptManager} from '@lib/prompts';
 
 export class DirectusRunner extends AbstractRunner<DirectusRunner> {
 	private isCreateOperation = false;
@@ -45,7 +46,8 @@ export class DirectusRunner extends AbstractRunner<DirectusRunner> {
 	override async run(): Promise<void> {
 		if (this.subprocess) {
 			if ((this.isAddOperation || this.isCreateOperation) && this.answers) {
-				directusCliPromptsHandler(this.subprocess, this.answers);
+				const [prompts, promptActions] = getPromptsWithActions(this.answers);
+				await new PromptManager(prompts, promptActions).run(this.subprocess);
 			}
 			await this.subprocess;
 		}
